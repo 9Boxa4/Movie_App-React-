@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { useEffect,useState } from 'react';
 import './App.css';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
 
 function App() {
+  const [token, setToken] = useState();
+  
+ 
+
+  function recieveTokenItem(key){
+    localStorage.removeItem(key);
+    setToken(localStorage.getItem('token'))
+  }
+
+  function settingTokenItem(key,value){
+    localStorage.setItem(key,value);
+    setToken(localStorage.getItem("token"));
+  }
+
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+      !token
+      ?  
+      <Login settingTokenItem={settingTokenItem}/>
+      :
+      <Home recieveTokenItem={recieveTokenItem}/>}
     </div>
   );
 }
