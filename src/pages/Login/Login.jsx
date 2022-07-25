@@ -33,17 +33,18 @@ const Login = (props) => {
         e.preventDefault();
        
         const userData= users.find(user=>user.username === loginData.username);
-        if(userData)
+        if(!userData)
         {
-            userData.password !== loginData.password 
-            ? 
-            setIsValidInput(state=>({...state,pass:!state.pass}))
-            : 
-            settingTokenItem('token','token')
+          setIsValidInput(state=>({...state,user:false}))
+          setIsValidInput(state=>({...state,pass:false}))
         }
-        else 
-        {        
-                setIsValidInput(state=>({...state,user:!state.user}))          
+        else{
+          setIsValidInput(state=>({...state,user:true}))
+          userData.password !== loginData.password 
+              ? 
+              setIsValidInput(state=>({...state,pass:false}))
+              : 
+              settingTokenItem('token','token')
         }
     }
 
