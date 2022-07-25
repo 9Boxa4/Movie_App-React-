@@ -54,7 +54,8 @@ const handleKeyPress = ({key}) =>{
         setState(state=>({...state,selectedMovieIndex:state.selectedMovieIndex-1}))
 
         //while going left will scroll the row by the width of the poster img
-        document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:-document.querySelector(`.row__poster img`).clientWidth*1.3,behavior: 'smooth'})
+        // document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:-document.querySelector(`.row__poster img`).clientWidth*1.3,behavior: 'smooth'})
+        document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:-document.querySelector(`.row__poster img`).clientWidth,behavior: 'smooth'})
       break;
 
       case "ArrowRight":
@@ -64,7 +65,9 @@ const handleKeyPress = ({key}) =>{
         setState(state=>({...state,selectedMovieIndex:state.selectedMovieIndex+1}))
 
         //while going right will scroll the row by the width of the poster img
-        document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:document.querySelector(`.row__poster img`).clientWidth*1.3,behavior: 'smooth'})
+        // document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:document.querySelector(`.row__poster img`).clientWidth*1.3,behavior: 'smooth'})
+        document.querySelectorAll(`.slider__container ul`)[state.selectedRowIndex].scrollBy({top:0, left:document.querySelector(`.row__poster img`).clientWidth,behavior: 'smooth'})
+ 
       break;
 
       case "Enter":
