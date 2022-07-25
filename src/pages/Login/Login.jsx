@@ -53,12 +53,12 @@ const Login = (props) => {
         <form className='login__form' onSubmit={handleSubmit} action="">
                 <h1>Sign in</h1>
                 <div className='form__group username__group'>
-                    <input placeholder="Username *" onChange={e=> setLoginData(state=>({...state,username:e.target.value}))} type="email" name="" id=""/>
+                    <input required placeholder="Username *" onChange={e=> setLoginData(state=>({...state,username:e.target.value}))} type="email" name="" id=""/>
                 </div>
                 <p className={isValidInput.user?"hidden":null} style={{color:'red'}}>{errors.uname}</p>
 
                 <div className='form__group password__group'>    
-                    <input placeholder="Password *" type="password" onChange={e=>setLoginData(state=>({...state,password:e.target.value}))} />
+                    <input required placeholder="Password *" type="password" onChange={e=>setLoginData(state=>({...state,password:e.target.value}))} />
                 </div>
                 <p className={isValidInput.pass?"hidden":null}  style={{color:'red'}}>{errors.pass}</p>
 
