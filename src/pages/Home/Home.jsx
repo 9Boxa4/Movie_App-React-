@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react";
+import './Home.css'
 import genres from '../../Genres.json'
 import Row from "../../components/Row";
 import LogOutButton from "../../components/LogOutButton";
